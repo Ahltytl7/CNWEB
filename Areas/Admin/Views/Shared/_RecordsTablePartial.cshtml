@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CNWEB.Models.Order>
+
+@{
+   
+    var user = new User(new WebContext());
+    var trans = new TransactStatus(new WebContext());
+}
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: left; margin-left: 10px">
+                @item.Id
+            </td>
+            <td style="text-align: left">
+                @user.GetUserName(item.Id)
+            </td>
+            <td style="text-align: left; margin-left: 10px">
+                @item.Address
+            </td>
+
+            @*        <td style="text-align: center; padding-right: 100px">
+    @Html.DisplayFor(modelItem => item.Discount)
+    </td>*@
+            <td style="text-align: left">
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+
+            <td style="text-align: left">
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td style="text-align: left">
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            @*  <td style="text-align: left">
+    @Html.DisplayFor(modelItem => item.Status)
+    </td>*@
+            <td style="text-align: left">
+                @if (item.TransactStatusId == "01")
+                {
+                    @: Chờ xác nhận
+                }
+                else if (item.TransactStatusId == "02")
+                {
+                    @: Đang giao hàng
+                }
+                else if (item.TransactStatusId == "03")
+                {
+                    @: Đã giao hàng
+                }
+                else if (item.TransactStatusId == "04")
+                {
+                    @: Huỷ
+                }
+            </td>
+            <td class="project-actions text-right">
+                <a class="btn btn-primary btn-sm" asp-controller="AdminOrders" asp-action="Details" asp-route-id="@item.Id">
+                    <i class="fas fa-eye">
+                    </i>
+                    Xem
+                </a>
+                <a class="btn btn-info btn-sm btnCapNhat" data-id="@item.Id" data-transact-status="@item.TransactStatusId">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Cập nhật trạng thái
+                </a>
+                @*       <a class="btn btn-danger btn-sm" asp-controller="AdminOrders" asp-action="Delete" asp-route-id="@item.Id">
+        <i class="fas fa-trash">
+        </i>
+        Xoá đơn hàng
+        </a>*@
+            </td>
+        </tr>
+    }
+}

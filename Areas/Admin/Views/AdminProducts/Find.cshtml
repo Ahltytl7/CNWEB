@@ -1,0 +1,62 @@
+﻿@model List<Product>
+
+@{
+    var message = TempData["Message"] as string;
+    var cat = new Category(new WebContext());
+    int totalPages = ViewBag.totalPages;
+    ViewData["Title"] = "Find";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: left; margin-left: 10px">
+                @item.Id
+            </td>
+            <td style="text-align: left; margin-left: 10px">
+                @item.Name
+            </td>
+            @*    <td style="text-align: center;">
+    @item.Description
+    </td>*@
+            <td style="text-align: center; padding-right: 100px">
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td style="text-align: left">
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            @*   <td style="text-align: left">
+    @Html.DisplayFor(modelItem => item.EnteredDate)
+    </td>*@
+            <td style="text-align: left">
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td style="text-align: left">
+                @Html.DisplayFor(modelItem => item.Sold)
+            </td>
+            <td style="text-align: left">
+                @cat.GetCategoryName(item.IdCategories)
+            </td>
+            <td class="project-actions text-right">
+                <a class="btn btn-primary btn-sm" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.Id">
+                    <i class="fas fa-eye">
+                    </i>
+                    Xem
+                </a>
+                <a class="btn btn-info btn-sm" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.Id">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Sửa
+                </a>
+                <a class="btn btn-danger btn-sm" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.Id">
+                    <i class="fas fa-trash">
+                    </i>
+                    Xoá
+                </a>
+            </td>
+        </tr>
+    }
+}

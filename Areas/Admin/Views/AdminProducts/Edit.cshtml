@@ -1,0 +1,142 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model CNWEB.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-6">
+    <div class="card card-primary" style="width: 1500px">
+          <div class="card-header">
+            <h3 class="card-title">Sửa sản phẩm</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <form class="card-body" method="post" asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" style="display: flex;" enctype="multipart/form-data">
+           @* <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+            <div style="display: inline-block; width:600px">
+            <div class="form-group">
+                <label asp-for="Id" class="control-label">Mã sản phẩm</label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Tên sản phẩm</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Mô tả</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Giá</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label">Số lượng</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount" class="control-label">Giảm giá</label>
+                <input asp-for="Discount" class="form-control" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sold" class="control-label">Đã bán</label>
+                <input asp-for="Sold" class="form-control" />
+                <span asp-validation-for="Sold" class="text-danger"></span>
+            </div>
+        
+           
+            <div class="form-group">
+                <label asp-for="IdTradeMark" class="control-label">Thương hiệu</label>
+                <select asp-for="IdTradeMark" class="form-control" asp-items="ViewBag.IdTradeMark"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCategories" class="control-label">Danh mục</label>
+                <select asp-for="IdCategories" class="form-control" asp-items="ViewBag.IdCategories"></select>
+            </div>
+            </div>
+            <div class="form-group" style="display: inline-block; margin-left: 100px" >
+                <label for="Image">Hình ảnh:</label>
+                <input type="file" id="Anh" name="fileupload" value="@Model.Image" width="100px" onchange="displaySelectedFile(this)" />
+                <br />
+              @*  <input type="text" id="Anh" name="fileupload" value="@Model.Image" width="100px" />*@
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <img id="productImage" src="@Url.Content("~/uploads/" + Model.Image)" width="500px" height="500px" />
+                }
+           @*     <label asp-for="Image" class="control-label">Hình ảnh</label>
+                <br />
+                <img id="productImage" src="@Url.Content("~/uploads/" + Model.Image)" width="600px" height="500px" />
+                <input type="file" id="fileInput" name="fileInput" onchange="displayImage(this)" />
+                <p id="file-info"></p>*@
+            </div>
+          
+          @*  <div class="col-12">
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary">Trở lại</a>
+            </div>*@
+            <div class="form-group" asp-action="Index" asp-controller="AdminProducts" style="margin-top: 100px;">
+                <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                @*   <button type="submit" class="btn btn-primary">Save</button>*@
+                @*   <input type="submit" value="Save" class="btn btn-success float-right">*@
+            </div>
+        </form>
+        <div class="col-12">
+            <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary">Trở lại</a>
+        </div>
+    </div>
+</div>
+
+
+@*
+@section Scripts{
+    <script>
+        function displaySelectedFile(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('productImage').src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+}*@
+@*@section Scripts{
+    <script>
+        function displayImage(input) {
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('file-info').innerHTML = 'File đã chọn: ' + file.name;
+                document.getElementById('productImage').src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+}*@
+@*@section Scripts{
+    <script>
+        function displaySelectedFile(input) {
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                input.value = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+}*@
