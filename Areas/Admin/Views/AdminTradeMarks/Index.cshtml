@@ -1,0 +1,222 @@
+﻿@using X.PagedList;
+@using PagedList.Core;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<CNWEB.Models.TradeMark>
+
+@{
+    var message = TempData["Message"] as string;
+    var cat = new Category(new WebContext());
+    int totalPages = ViewBag.totalPages;
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Danh sach thương hiệu" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="page-header">
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+                <span class="breadcrumb-item active">Danh sach thương hiệu</span><p>(@ViewBag.StartRange-@ViewBag.EndRange) of @ViewBag.TotalRecords</p>
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body p-0">
+            <div class="row m-b-30">
+                <div class="col-lg-8" style="margin-top: 8px;">
+                    <div class="d-md-flex">
+
+                        <form asp-action="Index" asp-controller="AdminTradeMarks">
+                            <div class="form-inline" style="margin-top:-15px">
+
+
+
+                                <div class="input-group mb-3" style="margin-left: 10px; margin-top:18px">
+                                    <input id="CatID" name="CatID" type="text" class="form-control" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                   
+
+                    </div>
+                </div>
+                <div class="col-lg-4 text-right" style="margin-top:10px;">
+                    <a class="btn btn-info btn-sm" asp-controller="AdminTradeMarks" asp-action="Create" style="background-color: green; border-color: green">
+
+                        Thêm
+                    </a>
+                   
+                </div>
+
+
+              
+
+            </div>
+            <div class="table-responsive" id="productList" style="overflow-x: hidden">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+
+                    <div class="card-body p-0">
+                        <table class="table table-striped projects">
+                            <thead class="thead" style="background-color:#0069D9; color: white">
+                                <tr role="row">
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 300px;">Mã thương hiệu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 300px;">Tên thương hiệu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=": activate to sort column ascending" style="width: 150px;"></th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="records_table">
+
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td style="text-align: left; margin-left: 10px">
+                                                @item.Id
+                                            </td>
+                                            <td style="text-align: left; margin-left: 10px">
+                                                @item.Names
+                                            </td>
+
+                                           @* <td style="text-align: center; padding-right: 100px">
+                                                @Html.DisplayFor(modelItem => item.Discount)
+                                            </td>
+                                            <td style="text-align: left">
+                                                @Html.DisplayFor(modelItem => item.Price)
+                                            </td>
+
+                                            <td style="text-align: left">
+                                                @Html.DisplayFor(modelItem => item.Quantity)
+                                            </td>
+                                            <td style="text-align: left">
+                                                @Html.DisplayFor(modelItem => item.Sold)
+                                            </td>
+                                            <td style="text-align: left">
+                                                @cat.GetCategoryName(item.IdCategories)
+                                            </td>*@
+                                            <td class="project-actions text-right">
+                                                <a class="btn btn-primary btn-sm" asp-controller="AdminTradeMarks" asp-action="Details" asp-route-id="@item.Id" asp-route-page="@ViewBag.CurrentPage">
+                                                    <i class="fas fa-eye">
+                                                    </i>
+                                                    Xem
+                                                </a>
+                                                <a class="btn btn-info btn-sm" asp-controller="AdminTradeMarks" asp-action="Edit" asp-route-id="@item.Id">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Sửa
+                                                </a>
+                                                <a class="btn btn-danger btn-sm delete-btn" asp-controller="AdminTradeMarks" asp-action="Delete" asp-route-id="@item.Id">
+                                                    <i class="fas fa-trash">
+                                                    </i>
+                                                    Xoá
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="row" style="margin-left: 650px; margin-top: 20px;">
+                        <div class="col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                <ul class="pagination">
+
+                                    <li class="paginate_button page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                        <a href="@Url.Action("Index", new { page = 1 })" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Trang đầu</a>
+                                    </li>
+
+                                    <li class="paginate_button page-item @(ViewBag.CurrentPage == 1 ? "active" : "")">
+                                        <a href="@Url.Action("Index", new { page = 1 })" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">1</a>
+                                    </li>
+
+
+                                    @if (ViewBag.totalPages > 5)
+                                    {
+
+                                        if (ViewBag.CurrentPage > 5)
+                                        {
+                                            <li class="paginate_button page-item disabled">
+                                                <a aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">...</a>
+                                            </li>
+
+                                        }
+
+                                    }
+
+                                    @for (var i = Math.Max(1, ViewBag.CurrentPage - 2); i <= Math.Min(ViewBag.totalPages, ViewBag.CurrentPage + 2); i++)
+                                    {
+                                        @if (i == 1 || i == totalPages)
+                                        {
+                                            continue;
+                                        }
+                                        <li class="paginate_button page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                            <a href="@Url.Action("Index", new { page = i})" aria-controls="AdminProducts" data-dt-idx="@i" tabindex="0" class="page-link">@i</a>
+                                        </li>
+                                    }
+
+                                    @if (ViewBag.totalPages > 5)
+                                    {
+
+                                        if (ViewBag.CurrentPage < ViewBag.totalPages - 2)
+                                        {
+                                            <li class="paginate_button page-item disabled">
+                                                <a aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">...</a>
+                                            </li>
+                                        }
+
+                                    }
+
+                                    @if (totalPages != 1)
+                                    {
+                                        <li class="paginate_button page-item @(ViewBag.CurrentPage == totalPages ? "active" : "")">
+                                            <a href="@Url.Action("Index", new { page = totalPages })" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">@totalPages</a>
+                                        </li>
+                                    }
+
+
+
+                                    <li class="paginate_button page-item @(ViewBag.CurrentPage == totalPages ? "disabled" : "")">
+                                        <a href="@Url.Action("Index", new { page = totalPages })" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">Trang Cuối</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.delete-btn').on('click', function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                if (confirm('Bạn có chắc chắn muốn xoá sản phẩm này không?')) {
+                    window.location.href = url;
+                }
+            });
+            var txtCatIDValue = "@(ViewBag.CatIDValue ?? "")";
+            if (txtCatIDValue) {
+                $('#CatID').val(txtCatIDValue);
+            }
+
+        });
+    </script>
+}

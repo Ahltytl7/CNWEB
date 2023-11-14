@@ -36,49 +36,45 @@ namespace CNWEB.Areas.Admin.Controllers
         [HttpGet("Index")]
         public IActionResult Index(int? page, string CatID)
         {
-           
+            var username = HttpContext.Session.GetString("Username");
+            var fullname = HttpContext.Session.GetString("Name");
+            var id = HttpContext.Session.GetString("ID");
+            var image = HttpContext.Session.GetString("Image");
+            var phone = HttpContext.Session.GetString("Phone");
+            // Đặt thông tin người dùng vào ViewBag
+            ViewBag.Username = username;
+            ViewBag.fullname = fullname;
             var pageNumber = page ?? 1;
-            var pageSize = 3;
+            var pageSize = 5;
 
             var lsProducts = from x in _context.Products select x;
-            /* var lsproducts = _context.Products;*/
-
-            /*   if (CatID != "")
-               {
-                   lsProducts = lsProducts.Where(x => x.IdCategories == CatID);
-               }*/
-            /*         if (!String.IsNullOrEmpty(CatID))
-                     {
-                         lsProducts = lsProducts.Where(x => x.Name.ToLower().Contains(CatID));
-
-                     }*/
+         
             if (!String.IsNullOrEmpty(CatID))
             {
 
                 lsProducts = lsProducts.Where(x =>
          x.Id.ToLower().Contains(CatID) || x.Name.ToLower().Contains(CatID) ||
            _context.Categories.Any(c => c.Id == x.IdCategories && c.Names.ToLower().Contains(CatID)));
-     // Add other fields for search here
+  
                 }
         
 
             var totalProducts = lsProducts.Count();
             ViewBag.totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
             var pagedList = new X.PagedList.PagedList<Product>(lsProducts.OrderByDescending(x => x.Id), pageNumber, pageSize);
-          /*  var Categories = _context.Categories.ToList();*/
-       /*     Categories.Insert(0, new Category(_context) { Id = "00", Names = "-------Danh Mục------" });*/
+         
             var startRange = (pageNumber - 1) * pageSize + 1;
             var endRange = Math.Min(pageNumber * pageSize, totalProducts);
-            /*  ViewBag.CatID = new SelectList(Categories, "Id", "Names", CatID);*/
+
             ViewBag.CatIDValue = CatID;
             ViewBag.IdTradeMark = new SelectList(_context.TradeMarks.ToList(), "Id", "Names");
             ViewBag.IdCategories = new SelectList(_context.Categories.ToList(), "Id", "Names");
             ViewBag.TotalRecords = totalProducts;
-           /* ViewBag.CurrentCatID = CatID;*/
+        
             ViewBag.CurrentPage = pageNumber;
             ViewBag.StartRange = startRange;
             ViewBag.EndRange = endRange;
-          /*  ViewData["DanhMuc"] = new SelectList(_context.Categories, "Id", "Names");*/
+         
 
             return View(pagedList); // Trả về danh sách đã phân trang cho view
 
@@ -268,13 +264,22 @@ namespace CNWEB.Areas.Admin.Controllers
                     return NotFound();
                 }
     */
-            TempData["Message"] = "";
-            var productImages = _context.ProductImages.Where(x => x.IdProduct==id).ToList();
+            var tradeMark = _context.Products.Find(id);
 
-            if (productImages.Any()) _context.RemoveRange(productImages);
-            _context.Remove(_context.Products.Find(id));
-            _context.SaveChanges();
-            TempData["Message"] = "Sản phẩm đã được xoá";
+            if (tradeMark != null)
+            {
+                var productImages = _context.Products.Where(x => x.Id == id).ToList();
+
+                if (productImages.Any()) _context.RemoveRange(productImages);
+                _context.Remove(tradeMark);
+                _context.SaveChanges();
+                TempData["Message"] = "Sản phẩm đã được xoá";
+            }
+            else
+            {
+                TempData["Message"] = "Không tìm thấy sản phẩm để xoá";
+            }
+
             return RedirectToAction("Index");
         }
 

@@ -29,29 +29,20 @@
             <div class="row m-b-30">
                 <div class="col-lg-8" style="margin-top: 8px;">
                     <div class="d-md-flex">
-                       @* <form asp-action="Index" asp-controller="AdminProducts">*@
+                        <form asp-action="Index" asp-controller="AdminProducts">
                             <div class="form-inline" style="margin-top:-15px">
 
-                          @*      <div class="m-b-10 m-r-15">
-                          
-                                    <select class="form-control" name="txtCatID" style="min-width: 200px; margin-left: 1px">
-                                        <option disabled selected> Tìm kiếm theo</option>
-                                        <option value="1">Mã sản phẩm</option>
-                                        <option value="2">Tên sản phẩm</option>
-                                        <option value="3">Danh mục</option>
-                                    </select>
-                                </div>*@
                             
-                                <div class="input-group mb-3" style="margin-left: 10px; margin-top:18px;">
+
+                                <div class="input-group mb-3" style="margin-left: 10px; margin-top:18px">
                                     <input id="CatID" name="CatID" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
-                       
+
                             </div>
-                         
-                       @* </form>*@
+                        </form>
 
                     </div>
                 </div>

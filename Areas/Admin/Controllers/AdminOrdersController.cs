@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CNWEB.Models;
 using X.PagedList;
-
+using CNWEB.Models.Authentication;
 namespace CNWEB.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -24,12 +24,20 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Index")]
         [HttpGet("Index")]
+        [Authentication(MaChucNang = "01")]
         // GET: Admin/AdminOrders
         public IActionResult Index(int? page, string CatID)
         {
             /*var webContext = _context.Orders.Include(o => o.TransactStatus).Include(o => o.User);
             return View(await webContext.ToListAsync());*/
-
+            var username = HttpContext.Session.GetString("Username");
+            var fullname = HttpContext.Session.GetString("Name");
+            var id = HttpContext.Session.GetString("ID");
+            var image = HttpContext.Session.GetString("Image");
+            var phone = HttpContext.Session.GetString("Phone");
+            // Đặt thông tin người dùng vào ViewBag
+            ViewBag.Username = username;
+            ViewBag.fullname = fullname;
             var pageNumber = page ?? 1;
             var pageSize = 5;
 
@@ -41,9 +49,9 @@ namespace CNWEB.Areas.Admin.Controllers
             if (!String.IsNullOrEmpty(CatID))
             {
                 lsProducts = lsProducts.Where(x =>
-         x.Id.ToLower().Contains(CatID) || x.Address.ToLower().Contains(CatID) || 
-           _context.Users.Any(c => c.Id == x.UserId && c.Name.ToLower().Contains(CatID)) || _context.Users.Any(c => c.Id == x.UserId && c.Email.ToLower().Contains(CatID)) ||
-         _context.TransactStatuses.Any(c => c.TransactStatusId == x.TransactStatusId && c.Status.ToLower().Contains(CatID))
+         x.Id.ToLower().Contains(CatID) || (x.Address != null && x.Address.ToLower().Contains(CatID)) || 
+           _context.Customers.Any(c => c.Id == x.UserId && c.Name.ToLower().Contains(CatID)) || _context.Customers.Any(c => c.Id == x.UserId && c.Email.ToLower().Contains(CatID)) ||
+     (_context.TransactStatuses.Any(c => c.TransactStatusId == x.TransactStatusId && c.Status != null && c.Status.ToLower().Contains(CatID)))
      // Add other fields for search here
      );
             }
@@ -92,7 +100,7 @@ namespace CNWEB.Areas.Admin.Controllers
             return View(order);
         }
         [HttpGet]
-        public IActionResult Filtter(string CatID = null)
+     /*   public IActionResult Filtter(string CatID = null)
         {
             var url = $"/Admin/AdminOrders?CatID={CatID}";
             if (string.IsNullOrEmpty(CatID))
@@ -100,7 +108,7 @@ namespace CNWEB.Areas.Admin.Controllers
                 url = $"/Admin/AdminOrders";
             }
             return Json(new { status = "success", redirectUrl = url });
-        }
+        }*/
         [Route("")]
         [Route("Create")]
         [HttpGet("Create")]

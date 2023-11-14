@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -164,9 +165,9 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
+                <li class="nav-item" style="margin-top: 8px;">
+                    <a asp-controller="Access" asp-action="Logout">
+                        <i class="fa fa-user">Đăng xuất</i>
                     </a>
                 </li>
             </ul>
@@ -189,10 +190,10 @@
                 <img src="~/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">@ViewBag.fullname</a>
             </div>
         </div>
-
+       @*   @Html.Partial("_UserPanelPartial")*@
         <!-- SidebarSearch Form -->
         <div class="form-inline">
         </div>
@@ -229,31 +230,40 @@
                     </a>
 
                 </li>
+                      <li class="nav-item">
+                              <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-bag" style="color: white"></i>
+                        <p>
+                            Thương hiệu
+                                </p>
+                    </a>
+
+                        </li>        
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a asp-area="Admin" asp-controller="AdminUser" asp-action="Index" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Loại sản phẩm
+                            Quản Lý Tài khoản
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview" style="display: none;">
                         <li class="nav-item">
-                            <a href="../charts/chartjs.html" class="nav-link">
+                                    <a asp-area="Admin" asp-controller="AdminUser" asp-action="Index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <p>Danh sách người dùng</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="../charts/flot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Flot</p>
+                                <p>Nhóm </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="../charts/inline.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Inline</p>
+                                <p>Quyền</p>
                             </a>
                         </li>
                         <li class="nav-item">

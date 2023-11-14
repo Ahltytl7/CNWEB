@@ -13,5 +13,5 @@ public partial class Favoury
 
     public virtual Product? Product { get; set; }
 
-    public virtual User? User { get; set; }
+    public virtual Customer? User { get; set; }
 }

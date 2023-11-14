@@ -555,3 +555,4 @@ D:\WEB_MVC_NET_CORE_TU_HOC\CNWEB\bin\Debug\net6.0\X.PagedList.dll
 D:\WEB_MVC_NET_CORE_TU_HOC\CNWEB\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
 D:\WEB_MVC_NET_CORE_TU_HOC\CNWEB\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\WEB_MVC_NET_CORE_TU_HOC\CNWEB\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\WEB_MVC_NET_CORE_TU_HOC\CNWEB\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

@@ -18,10 +18,9 @@ public partial class Category
     public string Names { get; set; } = null!;
 
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
-    public string GetCategoryName(string categoryId)
+    public string GetCategoryName(string? categoryId)
     {
-        // Lấy tên danh mục dựa trên categoryId từ cơ sở dữ liệu hoặc các nguồn dữ liệu khác.
-        // Ví dụ:
-        return _context.Categories.FirstOrDefault(c => c.Id == categoryId)?.Names;
+        var category = _context.Categories.FirstOrDefault(c => c.Id == categoryId);
+        return category?.Names ?? "DefaultCategoryName";
     }
 }

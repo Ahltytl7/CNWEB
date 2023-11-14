@@ -3,6 +3,7 @@ using CNWEB.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using CNWEB.App_Start;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,9 @@ builder.Services.AddDbContext<WebContext>(options =>
 /*builder.Services.AddHttpContextAccessor();
 builder.Services.AddHostEnvironment();*/
 builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<SessionConfig>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,7 +37,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

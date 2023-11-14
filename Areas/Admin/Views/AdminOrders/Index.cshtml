@@ -8,7 +8,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     int totalPages = ViewBag.totalPages;
     int CurrentPage = ViewBag.CurrentPage;
-    var user = new User(new WebContext());
+    var user = new Customer(new WebContext());
     var trans = new TransactStatus(new WebContext());
 }
 

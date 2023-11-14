@@ -80,6 +80,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminTradeMarks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UcmFkZU1hcmtzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminTradeMarks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UcmFkZU1hcmtzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminTradeMarks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UcmFkZU1hcmtzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminTradeMarks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UcmFkZU1hcmtzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminTradeMarks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UcmFkZU1hcmtzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminUser/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Vc2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminUser/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Vc2VyXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminUser/LoiPhanQuyen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Vc2VyXExvaVBoYW5RdXllbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,8 +128,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9SZWNvcmRzVGFibGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Shared/_UserPanelPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Vc2VyUGFuZWxQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/TradeMarks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhZGVNYXJrc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/TradeMarks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhZGVNYXJrc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/TradeMarks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhZGVNYXJrc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/TradeMarks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhZGVNYXJrc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/TradeMarks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhZGVNYXJrc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/_ViewImports.cshtml]
@@ -106,6 +162,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Views/Access/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Views/Home/Index.cshtml]

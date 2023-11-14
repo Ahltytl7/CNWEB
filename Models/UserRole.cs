@@ -9,6 +9,8 @@ public partial class UserRole
 
     public string? RolesId { get; set; }
 
+    public string? Note { get; set; }
+
     public virtual AppRole? Roles { get; set; }
 
     public virtual User? User { get; set; }

@@ -1,0 +1,175 @@
+﻿@model CNWEB.Models.TradeMark
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<TradeMark> tradeMarks = ViewBag.chitiet;
+}
+<div class="card">
+    <div class="card-body">
+        <div id="invoice" class="p-h-30">
+            @*<div class="m-t-15 lh-2">
+            <div class="inline-block">
+            <img class="img-fluid" src="assets/images/logo/logo.png" alt="">
+            <address class="p-l-10">
+            <span class="font-weight-semibold text-dark">Enlink, Inc.</span><br>
+            <span>9498 Harvard Street</span><br>
+            <span>Fairfield, Chicago Town 06824</span><br>
+            <abbr class="text-dark" title="Phone">Phone:</abbr>
+            <span>(123) 456-7890</span>
+            </address>
+            </div>
+            <div class="float-right">
+            <h2>INVOICE</h2>
+            </div>
+            </div>*@
+            <div class="row m-t-20 lh-2">
+                <div class="col-sm-9">
+                    <h3 class="p-l-10 m-t-10">Thông tin thương hiệu:</h3>
+                    <address class="p-l-10 m-t-10">
+                        <span class="font-weight-semibold text-dark">Mã thương hiệu: @Model.Id</span><br>
+                        <span>Tên thương hiệu: @Model.Names</span><br>
+          @*              <span>Số điện thoại: @Model.Phone</span><br>
+                        <span>Email: @Model.User.Email</span>*@
+                    </address>
+                </div>
+                <div class="col-sm-3">
+                    <div class="m-t-80" style="margin-top: 50px">
+                        <div class="text-dark text-uppercase d-inline-block">
+                            <span class="font-weight-semibold text-dark">Hình ảnh :</span>
+                        </div>
+                        <div class="float-right"><img src="@Url.Content("~/uploads/" + Model.Logo)" width="600px" height="500px" /></div>
+                    </div>
+               @*     <div class="text-dark text-uppercase d-inline-block">
+                        <span class="font-weight-semibold text-dark">Thời gian đặt hàng :</span>
+                    </div>*@
+             @*       <div class="float-right">@Model.OrderDate</div>
+                    <div class="text-dark text-uppercase d-inline-block">
+                        <span class="font-weight-semibold text-dark">Trạng thái đơn hàng :</span>
+                    </div>*@
+                  @*  <div class="float-right">@Model.TransactStatus.Status</div>*@
+                </div>
+            </div>
+           @* <div> <h3 class="p-l-10 m-t-10">Danh sách sản phẩm:</h3><br /></div>
+            <div class="m-t-20">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Sản Phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Thành Tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (orderDetails != null && orderDetails.Count() > 0)
+                            {
+                                foreach (var item in orderDetails)
+                                {
+                                    int i = 1;
+                                    <tr>
+                                        <th>@i</th>
+                                        <td><a>@item.Product.Name</a></td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.Price VND</td>
+                                        <td>@item.Total VND</td>
+                                    </tr>
+                                    i++;
+                                }
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row m-t-30 lh-1-8">
+                    <div class="col-sm-12">
+                        <div class="float-right text-right">*@
+                            @* <p>Sub - Total amount: $2,325</p>
+                            <p>vat (10%) : $232 </p>*@
+                          @*  <hr>
+                            <h3><span class="font-weight-semibold text-dark">Tổng tiền :</span> @Model.Amount VNĐ</h3>
+                        </div>
+                    </div>
+                </div>*@
+
+                @*    <div class="row m-v-20">
+                <div class="col-sm-6">
+                <img class="img-fluid text-opacity m-t-5" width="100" src="assets/images/logo/logo.png" alt="">
+                </div>
+                <div class="col-sm-6 text-right">
+                <small><span class="font-weight-semibold text-dark">Phone:</span> (123) 456-7890</small>
+                <br>
+                <small>support@themenate.com</small>
+                </div>
+                </div>*@
+    @*        </div>
+        </div>*@
+    </div>
+</div>
+@*<h1>Details</h1>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TransactStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TransactStatus.TransactStatusId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+*@
+
+<div>
+@*    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
+    @*<a asp-action="Index">Trở lại</a>*@
+        <a class="btn btn-primary btn-sm" asp-controller="AdminTradeMarks" asp-action="Index" >
+      
+            Trở lại
+        </a>
+</div>

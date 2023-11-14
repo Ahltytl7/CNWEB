@@ -1,0 +1,165 @@
+﻿@*@model CNWEB.Models.TradeMark
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TradeMark</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Names" class="control-label"></label>
+                <input asp-for="Names" class="form-control" />
+                <span asp-validation-for="Names" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logo" class="control-label"></label>
+                <input asp-for="Logo" class="form-control" />
+                <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model CNWEB.Models.TradeMark
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-6">
+    <div class="card card-primary" style="width: 1500px">
+          <div class="card-header">
+            <h3 class="card-title">Sửa sản phẩm</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <form class="card-body" method="post" asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Edit"  enctype="multipart/form-data">
+            @* <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+            <div style="display: inline-block; width:600px">
+            <div class="form-group">
+                <label asp-for="Id" class="control-label">Mã thương hiệu</label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Names" class="control-label">Tên thương hiệu</label>
+                <input asp-for="Names" class="form-control" />
+                <span asp-validation-for="Names" class="text-danger"></span>
+            </div>
+           
+          
+            </div>
+            <div class="form-group" style="display: inline-block; margin-left: 100px" >
+                <label for="Image">Hình ảnh:</label>
+                <input type="file" id="Anh" name="fileupload" value="@Model.Logo" width="100px" onchange="displaySelectedFile(this)" />
+               @* <br />
+                  <input type="text" id="Anh" name="fileupload" value="@Model.Image" width="100px" />*@
+               @* @if (!string.IsNullOrEmpty(Model.Logo))
+                {
+                        <img id="productImage" src="@Url.Content("~/uploads/" + Model.Logo)" width="500px" height="500px" />
+                }*@
+                     @*<label asp-for="Image" class="control-label">Hình ảnh</label>*@
+               @* <br />
+                <img id="productImage" src="@Url.Content("~/uploads/" + Model.Image)" width="600px" height="500px" />
+                <input type="file" id="fileInput" name="fileInput" onchange="displayImage(this)" />
+                <p id="file-info"></p>*@
+                @*<label for="Image">Hình ảnh:</label>
+                <input type="file" id="Anh" name="fileupload" value="@Model.Logo" width="100px" onchange="displaySelectedFile(this)" />
+                <br />*@
+                @* <input type="text" id="Anh" name="fileupload" value="@Model.Image" width="100px" /> *@
+                <script>
+                    // JavaScript function to display the selected file name
+                    function displaySelectedFile(input) {
+                        var fileName = input.files[0].name;
+                        var filePath = URL.createObjectURL(input.files[0]);
+                        document.getElementById('file-info').innerText = fileName;
+                        document.getElementById('productImage').src = filePath;
+                    }
+                </script>
+                @if (!string.IsNullOrEmpty(Model.Logo))
+                {
+                    <img id="productImage" src="@Url.Content("~/uploads/" + Model.Logo)" width="500px" height="500px" />
+                }
+                <p id="file-info"></p>
+            </div>
+
+            @*  <div class="col-12">
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary">Trở lại</a>
+            </div>*@
+          
+       
+ @*       <div class="form-group" asp-action="Index" asp-controller="AdminTradeMarks" style="margin-top: 100px;">
+            
+
+        </div>*@
+        <div class="col-12" asp-action="Index" asp-controller="AdminTradeMarks">
+            <input type="submit" value="Cập nhật" class="btn btn-primary" />
+            <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="btn btn-secondary">Trở lại</a>
+        </div>
+        </form>
+    </div>
+</div>
+
+
+@*
+@section Scripts{
+    <script>
+        function displaySelectedFile(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('productImage').src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+}*@
+@*@section Scripts{
+    <script>
+        function displayImage(input) {
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('file-info').innerHTML = 'File đã chọn: ' + file.name;
+                document.getElementById('productImage').src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+}*@
+@*@section Scripts{
+    <script>
+        function displaySelectedFile(input) {
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                input.value = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+}*@

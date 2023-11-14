@@ -23,6 +23,8 @@ public partial class WebContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<Customer> Customers { get; set; }
+
     public virtual DbSet<Favoury> Favouries { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
@@ -60,8 +62,11 @@ public partial class WebContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("id");
             entity.Property(e => e.Name)
-                .HasMaxLength(20)
+                .HasMaxLength(200)
                 .HasColumnName("name");
+            entity.Property(e => e.Role)
+                .HasMaxLength(200)
+                .HasColumnName("role");
         });
 
         modelBuilder.Entity<Cart>(entity =>
@@ -133,6 +138,54 @@ public partial class WebContext : DbContext
             entity.Property(e => e.Names)
                 .HasMaxLength(50)
                 .HasColumnName("names");
+        });
+
+        modelBuilder.Entity<Customer>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83FAE3B4022");
+
+            entity.ToTable("Customer");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("id");
+            entity.Property(e => e.Address)
+                .HasMaxLength(255)
+                .HasColumnName("address");
+            entity.Property(e => e.CreatedDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("date")
+                .HasColumnName("created_date");
+            entity.Property(e => e.Email)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("email");
+            entity.Property(e => e.Gender)
+                .HasDefaultValueSql("((0))")
+                .HasColumnName("gender");
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("image");
+            entity.Property(e => e.Name)
+                .HasMaxLength(50)
+                .HasColumnName("name");
+            entity.Property(e => e.Password)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("password");
+            entity.Property(e => e.Phone)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("phone");
+            entity.Property(e => e.Status)
+                .HasDefaultValueSql("((1))")
+                .HasColumnName("status");
+            entity.Property(e => e.Token)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("token");
         });
 
         modelBuilder.Entity<Favoury>(entity =>
@@ -387,48 +440,31 @@ public partial class WebContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83FAE3B4022");
+            entity.ToTable("User");
 
             entity.Property(e => e.Id)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("id");
-            entity.Property(e => e.Address)
-                .HasMaxLength(255)
-                .HasColumnName("address");
-            entity.Property(e => e.CreatedDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("date")
-                .HasColumnName("created_date");
-            entity.Property(e => e.Email)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("email");
-            entity.Property(e => e.Gender)
-                .HasDefaultValueSql("((0))")
-                .HasColumnName("gender");
             entity.Property(e => e.Image)
-                .HasMaxLength(50)
+                .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("image");
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .HasColumnName("name");
             entity.Property(e => e.Password)
-                .HasMaxLength(255)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("password");
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("phone");
-            entity.Property(e => e.Status)
-                .HasDefaultValueSql("((1))")
-                .HasColumnName("status");
-            entity.Property(e => e.Token)
-                .HasMaxLength(255)
+            entity.Property(e => e.Username)
+                .HasMaxLength(50)
                 .IsUnicode(false)
-                .HasColumnName("token");
+                .HasColumnName("username");
         });
 
         modelBuilder.Entity<UserRole>(entity =>
@@ -437,6 +473,9 @@ public partial class WebContext : DbContext
                 .HasNoKey()
                 .ToTable("User_roles");
 
+            entity.Property(e => e.Note)
+                .HasMaxLength(50)
+                .HasColumnName("note");
             entity.Property(e => e.RolesId)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -452,7 +491,8 @@ public partial class WebContext : DbContext
 
             entity.HasOne(d => d.User).WithMany()
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK_Users");
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_User_roles_User");
         });
 
         OnModelCreatingPartial(modelBuilder);
