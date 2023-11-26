@@ -61,7 +61,7 @@ namespace CNWEB.Areas.Admin.Controllers
 
             var totalProducts = lsProducts.Count();
             ViewBag.totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
-            var pagedList = new X.PagedList.PagedList<Product>(lsProducts.OrderByDescending(x => x.Id), pageNumber, pageSize);
+            var pagedList = new X.PagedList.PagedList<Product>(lsProducts.OrderBy(x => x.Id), pageNumber, pageSize);
          
             var startRange = (pageNumber - 1) * pageSize + 1;
             var endRange = Math.Min(pageNumber * pageSize, totalProducts);
@@ -126,6 +126,7 @@ namespace CNWEB.Areas.Admin.Controllers
             }
             ViewData["IdCategories"] = new SelectList(_context.Categories, "Id", "Names");
             ViewData["IdTradeMark"] = new SelectList(_context.TradeMarks, "Id", "Names");
+        /*    var cate = _context.Categories.Where()*/
             return View(product);
         }
   
@@ -135,7 +136,17 @@ namespace CNWEB.Areas.Admin.Controllers
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-          
+            var username = HttpContext.Session.GetString("Username");
+            var fullname = HttpContext.Session.GetString("Name");
+            var id = HttpContext.Session.GetString("ID");
+            var image = HttpContext.Session.GetString("Image");
+            var phone = HttpContext.Session.GetString("Phone");
+            // Đặt thông tin người dùng vào ViewBag
+            ViewBag.Username = username;
+            ViewBag.fullname = fullname;
+            // Xoá tất cả các biến session
+        /*    HttpContext.Session.Clear();*/
+
             ViewData["IdCategories"] = new SelectList(_context.Categories, "Id", "Names");
             ViewData["IdTradeMark"] = new SelectList(_context.TradeMarks, "Id", "Names");
             return View();
@@ -149,7 +160,15 @@ namespace CNWEB.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create( Product product, IFormFile fileupload)
         {
-          
+            var username = HttpContext.Session.GetString("Username");
+            var fullname = HttpContext.Session.GetString("Name");
+            var id = HttpContext.Session.GetString("ID");
+            var image = HttpContext.Session.GetString("Image");
+            var phone = HttpContext.Session.GetString("Phone");
+            // Đặt thông tin người dùng vào ViewBag
+            ViewBag.Username = username;
+            ViewBag.fullname = fullname;
+
             if (ModelState.IsValid)
             {
                 // Xử lý giá trị trường EnteredDate

@@ -4,6 +4,7 @@ using CNWEB.App_Start;
 using X.PagedList;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using CNWEB.Models.Authentication;
 
 namespace CNWEB.Areas.Admin.Controllers
 {
@@ -46,6 +47,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Index")]
         [HttpGet("Index")]
+        [Authentication(MaChucNang = "02")]
         public IActionResult Index(int? page, string CatID)
         {
             var username = HttpContext.Session.GetString("Username");
@@ -104,6 +106,70 @@ namespace CNWEB.Areas.Admin.Controllers
             ViewBag.Username = username;
             ViewBag.fullname = fullname;
             return View();
+        }
+        [Route("")]
+        [Route("PhanQuyenChucNang")]
+        [HttpGet("PhanQuyenChucNang")]
+        public IActionResult PhanQuyenChucNang(string idTaiKhoan)
+        {
+            var username = HttpContext.Session.GetString("Username");
+            var fullname = HttpContext.Session.GetString("Name");
+            var id = HttpContext.Session.GetString("ID");
+            var image = HttpContext.Session.GetString("Image");
+            var phone = HttpContext.Session.GetString("Phone");
+            // Đặt thông tin người dùng vào ViewBag
+            ViewBag.Username = username;
+            ViewBag.fullname = fullname;
+            /* var username = HttpContext.Session.GetString("Username");
+             var fullname = HttpContext.Session.GetString("Name");
+             var id = HttpContext.Session.GetString("ID");
+             var image = HttpContext.Session.GetString("Image");
+             var phone = HttpContext.Session.GetString("Phone");
+
+             // Đặt thông tin người dùng vào ViewBag
+             ViewBag.Username = username;
+             ViewBag.fullname = fullname;*/
+
+            /*    
+                if (!String.IsNullOrEmpty(idTaiKhoan))
+                {*/
+            /*var user = _context.Users.SingleOrDefault(x => x.Id == idTaiKhoan);
+            if (user != null)
+            {
+                return View(user);
+            }
+            return NotFound(); // Trả về trang lỗi 404*/
+            if (idTaiKhoan == null || _context.Users == null)
+            {
+                return NotFound();
+            }
+
+            var order =  _context.Users
+                .FirstOrDefault(m => m.Id == idTaiKhoan);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            /* var chitietdonhang = _context.OrderDetails.Include(x => x.Product).AsNoTracking().Where(x => x.OrderId == order.Id).OrderBy(x => x.Id).ToList();
+             ViewBag.chitiet = chitietdonhang;*/
+            return View(order);
+
+        }
+        [Route("")]
+        [Route("LuuPhanQuyen")]
+        [HttpGet("LuuPhanQuyen")]
+        public IActionResult LuuPhanQuyen(string idTaiKhoan,string chucNang)
+        {
+            var username = HttpContext.Session.GetString("Username");
+            var fullname = HttpContext.Session.GetString("Name");
+            var id = HttpContext.Session.GetString("ID");
+            var image = HttpContext.Session.GetString("Image");
+            var phone = HttpContext.Session.GetString("Phone");
+            // Đặt thông tin người dùng vào ViewBag
+            ViewBag.Username = username;
+            ViewBag.fullname = fullname;
+            new mapPhanQuyen().LuuPhanQuyen(idTaiKhoan,chucNang);
+            return RedirectToAction("PhanQuyenChucNang", new { idTaiKhoan = idTaiKhoan });
         }
     }
 }

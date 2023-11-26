@@ -27,7 +27,7 @@
     <div class="card">
         <div class="card-body p-0">
             <div class="row m-b-30">
-                <div class="col-lg-8" style="margin-top: 8px;">
+                <div class="col-lg-6" style="margin-top: 8px;">
                     <div class="d-md-flex">
                         <form asp-action="Index" asp-controller="AdminProducts">
                             <div class="form-inline" style="margin-top:-15px">
@@ -46,11 +46,16 @@
 
                     </div>
                 </div>
-                <div class="col-lg-4 text-right" style="margin-top:10px;" >
-                    <a class="btn btn-info btn-sm" asp-controller="AdminProducts" asp-action="Create" style="background-color: green; border-color: green">
-                       
-                        Thêm
-                    </a>
+                <div class="col-lg-6 text-right " style="margin-top:10px; margin-left: -25px; ">
+                  @*  <a class="btn btn-info btn-sm border-0 align-items-center font-size-bold" asp-controller="AdminProducts" asp-action="Create" style="background-color: #28A745; border-color: green;width:100px; height: 36px; align-items: center">
+                        <span> Thêm mới</span>
+                    </a>*@
+                    <button type="button" class="btn btn-success float-right" asp-controller="AdminProducts" asp-action="Create">
+                        @*<i class="far fa-credit-card"></i>*@<i class="fa-plus" ></i> Thêm mới
+                    </button>
+                   @* <button type="button" class="btn btn-block btn-success btn-sm" asp-controller="AdminProducts" asp-action="Create">Thêm mới</button>*@
+                    @*<i class="fa-solid fa-plus"></i>*@
+             @*       <input type="submit" value="Thêm mới" class="btn btn-success float-right" asp-controller="AdminProducts" asp-action="Create">*@
                     @*<button class="btn btn-primary" asp-controller="AdminProducts" asp-action="Create">*@
                       @*  <i class="fa-solid fa-plus"></i>    
                         Thêm*@

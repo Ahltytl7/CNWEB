@@ -112,6 +112,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Vc2VyXExvaVBoYW5RdXllbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/AdminUser/PhanQuyenChucNang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Vc2VyXFBoYW5RdXllbkNodWNOYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

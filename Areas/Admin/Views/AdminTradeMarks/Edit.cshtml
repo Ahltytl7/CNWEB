@@ -70,21 +70,6 @@
             <div class="form-group" style="display: inline-block; margin-left: 100px" >
                 <label for="Image">Hình ảnh:</label>
                 <input type="file" id="Anh" name="fileupload" value="@Model.Logo" width="100px" onchange="displaySelectedFile(this)" />
-               @* <br />
-                  <input type="text" id="Anh" name="fileupload" value="@Model.Image" width="100px" />*@
-               @* @if (!string.IsNullOrEmpty(Model.Logo))
-                {
-                        <img id="productImage" src="@Url.Content("~/uploads/" + Model.Logo)" width="500px" height="500px" />
-                }*@
-                     @*<label asp-for="Image" class="control-label">Hình ảnh</label>*@
-               @* <br />
-                <img id="productImage" src="@Url.Content("~/uploads/" + Model.Image)" width="600px" height="500px" />
-                <input type="file" id="fileInput" name="fileInput" onchange="displayImage(this)" />
-                <p id="file-info"></p>*@
-                @*<label for="Image">Hình ảnh:</label>
-                <input type="file" id="Anh" name="fileupload" value="@Model.Logo" width="100px" onchange="displaySelectedFile(this)" />
-                <br />*@
-                @* <input type="text" id="Anh" name="fileupload" value="@Model.Image" width="100px" /> *@
                 <script>
                     // JavaScript function to display the selected file name
                     function displaySelectedFile(input) {
@@ -100,16 +85,6 @@
                 }
                 <p id="file-info"></p>
             </div>
-
-            @*  <div class="col-12">
-                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary">Trở lại</a>
-            </div>*@
-          
-       
- @*       <div class="form-group" asp-action="Index" asp-controller="AdminTradeMarks" style="margin-top: 100px;">
-            
-
-        </div>*@
         <div class="col-12" asp-action="Index" asp-controller="AdminTradeMarks">
             <input type="submit" value="Cập nhật" class="btn btn-primary" />
             <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="btn btn-secondary">Trở lại</a>

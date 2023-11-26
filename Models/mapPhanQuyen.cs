@@ -28,5 +28,28 @@
                 return false;
             }
         }
+        public List<AppRole> DanhSachChucNang()
+        {
+            return _context.AppRoles.ToList();
+        }
+        public bool LuuPhanQuyen(string idTaiKhoan,string maChucNang)
+        {
+            var role = _context.UserRoles.SingleOrDefault(m => m.UserId == idTaiKhoan & m.RolesId == maChucNang);
+            if (role != null)
+            {
+                _context.UserRoles.Remove(role);
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                var role2 = new UserRole();
+                role2.UserId = idTaiKhoan;
+                role2.RolesId = maChucNang;
+                _context.UserRoles.Add(role2);
+                _context.SaveChanges();
+                return true;    
+            }
+        }
     }
 }

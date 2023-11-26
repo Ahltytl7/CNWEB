@@ -1,0 +1,194 @@
+﻿@model CNWEB.Models.User
+
+@{
+    ViewData["Title"] = "PhanQuyenChucNang";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Phân Quyền Chức Năng</h1>
+<div class="card">
+    <div class="card-body">
+        <div id="invoice" class="p-h-30">
+            <div class="row m-t-20 lh-2">
+                <div class="col-sm-9">
+                    <h3 class="p-l-10 m-t-10">Thông tin tài khoản:</h3>
+                    <address class="p-l-10 m-t-10">
+                        <span class="font-weight-semibold text-dark">Họ và tên: @Model.Name</span><br>
+                        <span>Tài khoản: @Model.Username</span><br>
+                        <span>Mật khẩu: @Model.Password</span><br>
+                        <span>Số điện thoại: @Model.Phone</span>
+                    </address>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Phân Quyền</h4>
+                    @{
+                        var context = new WebContext();
+                        var listChucNang = new CNWEB.Models.mapPhanQuyen(context).DanhSachChucNang();
+                        var listNhom =listChucNang.Select(m=>m.Role).Distinct().ToList();
+                    }
+                    <table class="table">
+                        @foreach(var nhom in listNhom)
+                        {
+                            <tr>
+                                <th>@nhom</th>
+                                <th>Chọn tất cả|huỷ tất cả</th>
+                            </tr>
+                        
+                        @foreach(var cn in listChucNang.Where(m=>m.Role == nhom).ToList())
+                        {
+                            var check = new CNWEB.Models.mapPhanQuyen(context).KiemTra(Model.Id, cn.Id);
+                            <tr>
+                                <td>
+                                    @cn.Name
+                                </td>
+                                <td>
+                                    @if(check == true)
+                                    {
+                                        <input type="checkbox" checked />
+                                        <a href="~/Admin/AdminUser/LuuPhanQuyen?idTaiKhoan=@Model.Id&chucNang=@cn.Id">Huỷ</a>
+                                    }
+                                    else
+                                    {
+                                         <input type="checkbox" />
+                                        <a href="~/Admin/AdminUser/LuuPhanQuyen?idTaiKhoan=@Model.Id&chucNang=@cn.Id">Đăng ký</a>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                        }
+                     
+                    </table>
+                    @*<div class="m-t-80" style="margin-top: 50px">
+                        <div class="text-dark text-uppercase d-inline-block">
+                            <span class="font-weight-semibold text-dark">Mã đơn hàng :</span>
+                        </div>
+                        <div class="float-right">@Model.Id</div>
+                    </div>
+                    <div class="text-dark text-uppercase d-inline-block">
+                        <span class="font-weight-semibold text-dark">Thời gian đặt hàng :</span>
+                    </div>
+                    <div class="float-right">@Model.OrderDate</div>
+                    <div class="text-dark text-uppercase d-inline-block">
+                        <span class="font-weight-semibold text-dark">Trạng thái đơn hàng :</span>
+                    </div>
+                    <div class="float-right">@Model.TransactStatus.Status</div>*@
+                </div>
+            </div>
+      @*      <div> <h3 class="p-l-10 m-t-10">Danh sách sản phẩm:</h3><br /></div>
+            <div class="m-t-20">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Sản Phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Thành Tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (orderDetails != null && orderDetails.Count() > 0)
+                            {
+                                foreach (var item in orderDetails)
+                                {
+                                    int i = 1;
+                                    <tr>
+                                        <th>@i</th>
+                                        <td><a>@item.Product.Name</a></td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.Price VND</td>
+                                        <td>@item.Total VND</td>
+                                    </tr>
+                                    i++;
+                                }
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>*@
+                @*<div class="row m-t-30 lh-1-8">
+                    <div class="col-sm-12">
+                        <div class="float-right text-right">
+
+                            <hr>
+                            <h3><span class="font-weight-semibold text-dark">Tổng tiền :</span> @Model.Amount VNĐ</h3>
+                        </div>
+                    </div>
+                </div>*@
+          @*  </div>*@
+        </div>
+    </div>
+</div>
+
+@*<h1>PhanQuyenChucNang</h1>
+   
+<div>
+   
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model != null)
+    {
+        @Model.Username
+    }
+    else
+    {
+        <span>No data available</span>
+    }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model != null)
+            {
+                @Model.Password
+            }
+            else
+            {
+                <span>No data available</span>
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model != null)
+            {
+                @Model.Name
+            }
+            else
+            {
+                <span>No data available</span>
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model != null)
+            {
+                @Model.Phone
+            }
+            else
+            {
+                <span>No data available</span>
+            }
+        </dd>*@
+     @*   <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>*@
+@*    </dl>
+</div>*@
+
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@

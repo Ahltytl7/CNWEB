@@ -4,8 +4,58 @@
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<section class="content">
 
-<form class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title font-weight-semibold" style="font-size: 30px;">Chi tiết sản phẩm</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                 
+                    <div class="row m-t-20 lh-2">
+                       @* <div class="col-12">*@
+                        <div class="col-sm-5">
+                              @*  <h3 class="p-l-10 m-t-10">Thông tin đơn hàng:</h3>*@
+                             @*   <address class="p-l-10 m-t-10">*@
+                            <span class="text-muted" style="font-size: 24px;">Mã sản phẩm: @Model.Id</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Tên sản phẩm: @Model.Name</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Mô tả: @Model.Description</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Giá: @Model.Price</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Số lượng: @Model.Quantity</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Đã bán: @Model.Sold</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Giảm Giá: @Model.Discount</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Thương hiệu: @Model.GetCategory(Model.Id)</span><br>
+                            <span class="text-muted" style="font-size: 24px;">Danh mục: @Model.GetTradeMark(Model.Id)</span>
+                           @*     </address>*@
+                            </div>
+                        <div class="col-sm-5">
+                           @* <label asp-for="Image" class="text-muted" style="font-size: 24px;">Hình ảnh</label>*@
+                          @*  <br />*@
+                            <img class="img-fluid" src="@Url.Content("~/uploads/" + Model.Image)" />
+                        </div>
+                      @*  </div>*@
+                    </div>
+                    <div class="col-12">
+                        <br />
+                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary bg-primary border-0 font-weight-bold" style="width: 200px; border-color: #0062CC; margin-left: -7px"><i class="fa-solid fa-arrow-left-long" style="color: #ffffff;"></i>Quay lại</a>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</section>
+@*<form class="col-md-6">
     <div class="card card-primary" style="width: 1500px">
         <div class="card-header">
             <h3 class="card-title">Chi tiết sản phẩm</h3>
@@ -79,3 +129,4 @@
         <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary">Trở lại</a>
     </div>
 </form>
+*@

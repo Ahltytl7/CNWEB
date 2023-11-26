@@ -1,10 +1,18 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace CNWEB.Models;
 
 public partial class Product
 {
+    private readonly WebContext _context;
+
+    public Product(WebContext context)
+    {
+        _context = context;
+    }
     public string Id { get; set; } = null!;
 
     public string Name { get; set; } = null!;
@@ -42,4 +50,28 @@ public partial class Product
     public virtual ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
 
     public virtual ICollection<Rate> Rates { get; set; } = new List<Rate>();
+    public string GetCategory(string id)
+    {
+        var categoryName = _context.Products
+            .Where(p => p.Id == id)
+            .Join(_context.Categories,
+                product => product.IdCategories,
+                category => category.Id,
+                (product, category) => category.Names)
+            .FirstOrDefault();
+
+        return categoryName;
+    }
+    public string GetTradeMark(string id)
+    {
+        var categoryName = _context.Products
+            .Where(p => p.Id == id)
+            .Join(_context.TradeMarks,
+                product => product.IdTradeMark,
+                category => category.Id,
+                (product, category) => category.Names)
+            .FirstOrDefault();
+
+        return categoryName;
+    }
 }

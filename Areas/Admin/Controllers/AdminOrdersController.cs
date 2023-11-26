@@ -24,7 +24,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Index")]
         [HttpGet("Index")]
-        [Authentication(MaChucNang = "01")]
+        [Authentication(MaChucNang = "02")]
         // GET: Admin/AdminOrders
         public IActionResult Index(int? page, string CatID)
         {

@@ -26,5 +26,16 @@
             }
              
         }
+        public User? TimKiem(string id)
+        {
+            if (_context == null)
+            {
+                // Handle the scenario where _context is null
+                return null;
+            }
+
+            var user = _context.Users.Find(id);
+            return user;
+        }
     }
 }
