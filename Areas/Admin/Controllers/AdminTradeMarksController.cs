@@ -12,6 +12,7 @@ namespace CNWEB.Areas.Admin.Controllers
     [Area("Admin")]
     [Route("Admin")]
     [Route("Admin/AdminTradeMarks")]
+    [HasCredential(RoleCode = "trademark")]
     public class AdminTradeMarksController : Controller
     {
         private readonly WebContext _context;
@@ -35,7 +36,7 @@ namespace CNWEB.Areas.Admin.Controllers
             ViewBag.Username = username;
             ViewBag.fullname = fullname;
             var pageNumber = page ?? 1;
-            var pageSize = 3;
+            var pageSize = 5;
 
             var lsTradeMark = from x in _context.TradeMarks select x;
 
@@ -70,6 +71,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Details")]
         [HttpGet("Details")]
+        [HasCredential(RoleCode = "view-trademark")]
         // GET: Admin/AdminTradeMarks/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -90,6 +92,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Create")]
         [HttpGet("Create")]
+        [HasCredential(RoleCode = "add-trademark")]
         // GET: Admin/AdminTradeMarks/Create
         public IActionResult Create()
         {
@@ -132,6 +135,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Edit")]
         [HttpGet("Edit")]
+        [HasCredential(RoleCode = "edit-trademark")]
         // GET: Admin/AdminTradeMarks/Edit/5
         public IActionResult Edit(string id)
         {
@@ -200,8 +204,9 @@ namespace CNWEB.Areas.Admin.Controllers
             [Route("")]
             [Route("Delete")]
             [HttpGet("Delete")]
-            // GET: Admin/AdminTradeMarks/Delete/5
-            public IActionResult Delete(string id)
+            [HasCredential(RoleCode = "delete-trademark")]
+        // GET: Admin/AdminTradeMarks/Delete/5
+        public IActionResult Delete(string id)
             {
                 TempData["Message"] = "";
             var tradeMark = _context.TradeMarks.Find(id);

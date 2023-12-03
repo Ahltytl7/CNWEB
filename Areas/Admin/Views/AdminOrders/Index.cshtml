@@ -16,8 +16,8 @@
     <div class="page-header">
         <div class="header-sub-title">
             <nav class="breadcrumb breadcrumb-dash">
-                <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                <span class="breadcrumb-item active">Danh sách đơn hàng</span>
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+                <span class="breadcrumb-item active"> Danh sách đơn hàng</span><p> (@ViewBag.StartRange-@ViewBag.EndRange) / @ViewBag.TotalRecords</p>
             </nav>
         </div>
     </div>
@@ -38,8 +38,8 @@
                                     </select>
                                 </div>*@
 
-                                <div class="input-group mb-3" style="margin-left: 10px; margin-top:18px">
-                                    <input id="CatID" name="CatID" type="text" class="form-control" placeholder="Search">
+                                <div class="input-group mb-3" style="margin-left: 10px; margin-top:30px">
+                                    <input id="CatID" name="CatID" type="text" class="form-control" placeholder="Nhập từ khoá tìm kiếm" style="width: 400px">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                     </div>
@@ -64,15 +64,16 @@
                     <table class="table table-hover e-commerce-table dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                         <thead class="thead" style="background-color:#0069D9; color: white">
                             <tr role="row">
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 80px;">Mã đơn hàng</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 120px;">Khách hàng</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 80px;text-align: center">Mã đơn hàng</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 150px;text-align: center">Khách hàng</th>
+        @*                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 120px;text-align: center">Khách hàng</th>*@
                                 @*                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 313.203px;padding-left: 170px">Mô tả</th>*@
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending" style="width: 150px; padding-right: 0px">Địa chỉ</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending" style="width: 50px;">Tổng tiền</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending" style="width: 150px; text-align: center">Địa chỉ</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending" style="width: 50px;text-align: center">Tổng tiền</th>
                                 @*       <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Stock Left: activate to sort column ascending" style="width: 138.75px;">Ngày nhập</th>*@
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 85px;">Email</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 65px;">Điện thoại</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 120px;">Trạng thái</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 85px;text-align: center">Email</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 65px;text-align: center">Điện thoại</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 120px;text-align: center">Trạng thái</th>
                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=": activate to sort column ascending" style="width: 150px;"></th>
 
                             </tr>
@@ -84,33 +85,33 @@
                                 foreach (var item in Model)
                                 {
                                                 <tr>
-                                                    <td style="text-align: left; margin-left: 10px">
+                                                    <td style="text-align: center; ">
                                             @item.Id
                                                     </td>
-                                        <td style="text-align: left">
+                                                <td style="text-align: center">
                                             @user.GetUserName(item.Id)
                                         </td>
-                                                    <td style="text-align: left; margin-left: 10px">
+                                                <td style="text-align: center ">
                                             @item.Address
                                                     </td>
 
                                             @*        <td style="text-align: center; padding-right: 100px">
                                             @Html.DisplayFor(modelItem => item.Discount)
                                                     </td>*@
-                                                    <td style="text-align: left">
+                                                <td style="text-align: center">
                                             @Html.DisplayFor(modelItem => item.Amount)
                                                     </td>
 
-                                                    <td style="text-align: left">
+                                                    <td style="text-align: center">
                                                 @user.GetUserEmail(item.Id)
                                                     </td>
-                                                    <td style="text-align: left">
+                                                <td style="text-align: center">
                                             @Html.DisplayFor(modelItem => item.Phone)
                                                     </td>
                                       @*  <td style="text-align: left">
                                             @Html.DisplayFor(modelItem => item.Status)
                                         </td>*@
-                                                    <td style="text-align: left">
+                                                <td style="text-align: center">
                                             @if (item.TransactStatusId == "01")
                                             {
                                                 @: Chờ xác nhận

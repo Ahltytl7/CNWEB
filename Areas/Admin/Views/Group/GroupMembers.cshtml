@@ -1,0 +1,217 @@
+﻿@model List<CNWEB.Models.Member>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên nhóm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a><a asp-area="Admin" asp-controller="Group" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Danh sách nhóm quyền</a>
+            <span class="breadcrumb-item active">Danh sách thành viên nhóm</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title font-weight-bold font-size-sm">Danh sách thành viên nhóm</h3>
+    </div>
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-6">
+                <div class="d-md-flex">
+                    <form asp-action="Index" asp-controller="Group">
+                        <div class="form-inline" style="margin-top:-15px">
+
+
+
+                            <div class="input-group mb-3" style="margin-left: 10px; margin-top:18px">
+                                <input id="CatID" name="CatID" type="text" class="form-control" placeholder="Search" style="width: 400px">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-lg-6 text-right " style="margin-top:3px; margin-left: -15px; ">
+                <a class="btn btn-success float-right" asp-controller="Group" asp-action="Index" >
+                    <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Thêm thành viên
+                </a>
+            </div>
+        </div>
+        <table id="members" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên thành viên</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Địa chỉ</th>
+                    <th>Điện thoại</th>
+                    <th>Ngày tạo</th>
+                    <th>Trạng thái</th>
+                    <th>Hình ảnh</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var member in Model)
+                {
+                    <tr>
+                        <td>@member.Id</td>
+                        <td>@member.Name</td>
+                        <td>@member.LoginName</td>
+                        <td>@member.Address</td>
+                        <td>@member.Phone</td>
+                        <td>@member.CreatedDate</td>
+                        <td>@member.Status</td>
+                        <td>
+                            <img src="@Url.Content("~/uploads/" + member.Image)" width="50px" height="50px" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Đặt modal ở cuối trang -->
+<div class="modal fade" id="modalAddMember">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title font-weight-bold">Thêm thành viên</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Nội dung form thêm thành viên -->
+                <!-- Ví dụ: -->
+                <form method="post" id="formAddMember">
+                    <!-- Các trường thông tin thành viên -->
+                    <div class="form-group">
+                        <label for="memberName">Tên thành viên:</label>
+                        <input type="text" class="form-control" id="memberName" name="memberName">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberLoginName">Login Name:</label>
+                        <input type="text" class="form-control" id="memberLoginName" name="memberLoginName">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberPassword">Password:</label>
+                        <input type="password" class="form-control" id="memberPassword" name="memberPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberCreatedDate">Ngày tạo:</label>
+                        <input type="date" class="form-control" id="memberCreatedDate" name="memberCreatedDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberStatus">Trạng thái:</label>
+                        <input type="text" class="form-control" id="memberStatus" name="memberStatus">
+                    </div>
+           
+                    <div class="form-group">
+                        <label for="memberGroupId">Nhóm:</label>
+                        <input type="text" class="form-control" id="memberGroupIdDisplay" value="admin" readonly>
+                        <input type="hidden" id="memberGroupId" name="memberGroupId" value="01">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberImage">Ảnh:</label>
+                        <input type="text" class="form-control" id="memberImage" name="memberImage">
+                    </div>
+               
+                    <div class="form-group">
+                        <label for="memberPhone">Số điện thoại:</label>
+                        <input type="text" class="form-control" id="memberPhone" name="memberPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberAddress">Địa chỉ:</label>
+                        <input type="text" class="form-control" id="memberAddress" name="memberAddress">
+                    </div>
+
+                    <!-- Button Lưu -->
+                    <button type="button" class="btn btn-primary" id="btnSaveMember">Lưu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+       
+        
+        $(document).ready(function () {
+           
+
+      
+            // Hiển thị modal khi nhấn nút Thêm Thành Viên
+            $("#btnAddMember").click(function () {
+                $("#modalAddMember").modal("show");
+            });
+           
+            // Xử lý khi nhấn nút Lưu trong modal
+            $("#btnSaveMember").click(function () {
+                // Thu thập thông tin thành viên từ form
+              
+                  
+                    // Thêm các trường khác tương ứng
+                $.ajax({
+                    url: "/Admin/Group/SaveMember", // Đặt đúng đường dẫn của action trong controller
+                    method: "POST",
+                    data: {
+                        memberName = $("#memberName").val(),
+                        memberLoginName = $("#memberLoginName").val(),
+                        memberPassword = $("#memberPassword").val(),
+                        memberCreatedDate = $("#memberCreatedDate").val(),
+                        memberStatus = $("#memberStatus").val(),
+                        memberGroupId =  $("#memberGroupId").val(),
+                        memberImage = $("#memberImage").val(),
+                        memberPhone = $("#memberPhone").val(),
+                        memberAddress =  $("#memberAddress").val()
+                    },
+                    success: function (data) {
+                        if (data.success) {
+                            // Xử lý khi thành công
+                            console.log("Thêm thành viên thành công!");
+                            $("#modalAddMember").modal("hide");
+                        } else {
+                            // Xử lý khi có lỗi
+                            console.error(data.errorMessage);
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Lỗi khi gọi action SaveMember: " + error.responseText);
+                    }
+                });
+
+                // Gọi hàm lưu thành viên (sử dụng Ajax để gọi action trong controller)
+               
+
+                // Đóng modal
+               
+            });
+       
+
+      
+
+        });
+
+    </script>
+}
+
+@* function displayFileName() {
+                var input = document.getElementById('memberImage');
+                var label = document.getElementById('fileNameLabel');
+                if (input.files.length > 0) {
+                    var fileName = input.files[0].name;
+                    label.textContent = input.files[0].name;
+                    label.innerHTML = fileName;
+                } else {
+                    label.textContent = 'Chọn đường dẫn';
+                }
+            }*@

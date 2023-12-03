@@ -23,9 +23,15 @@ public partial class WebContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<Credential> Credentials { get; set; }
+
     public virtual DbSet<Customer> Customers { get; set; }
 
     public virtual DbSet<Favoury> Favouries { get; set; }
+
+    public virtual DbSet<Group> Groups { get; set; }
+
+    public virtual DbSet<Member> Members { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
 
@@ -36,6 +42,8 @@ public partial class WebContext : DbContext
     public virtual DbSet<ProductImage> ProductImages { get; set; }
 
     public virtual DbSet<Rate> Rates { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<TradeMark> TradeMarks { get; set; }
 
@@ -140,6 +148,31 @@ public partial class WebContext : DbContext
                 .HasColumnName("names");
         });
 
+        modelBuilder.Entity<Credential>(entity =>
+        {
+            entity.ToTable("Credential");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.GroupId)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.RoleId)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.Group).WithMany(p => p.Credentials)
+                .HasForeignKey(d => d.GroupId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Credential_Group");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Credentials)
+                .HasForeignKey(d => d.RoleId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Credential_Role");
+        });
+
         modelBuilder.Entity<Customer>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Users__3213E83FAE3B4022");
@@ -212,6 +245,48 @@ public partial class WebContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Favouries)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK_Favouries_User");
+        });
+
+        modelBuilder.Entity<Group>(entity =>
+        {
+            entity.ToTable("Group");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Name).HasMaxLength(250);
+        });
+
+        modelBuilder.Entity<Member>(entity =>
+        {
+            entity.ToTable("Member");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Address).HasMaxLength(255);
+            entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+            entity.Property(e => e.GroupId)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.LoginName)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Name).HasMaxLength(250);
+            entity.Property(e => e.Password)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Phone)
+                .HasMaxLength(20)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.Group).WithMany(p => p.Members)
+                .HasForeignKey(d => d.GroupId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Member_Group");
         });
 
         modelBuilder.Entity<Order>(entity =>
@@ -399,6 +474,21 @@ public partial class WebContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Rates)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK_Rates_User");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.ToTable("Role");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Code)
+                .HasMaxLength(250)
+                .IsUnicode(false)
+                .HasColumnName("code");
+            entity.Property(e => e.GroupName).HasMaxLength(250);
+            entity.Property(e => e.Name).HasMaxLength(250);
         });
 
         modelBuilder.Entity<TradeMark>(entity =>

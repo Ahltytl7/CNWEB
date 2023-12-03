@@ -116,8 +116,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Vc2VyXFBoYW5RdXllbkNodWNOYW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Group/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Group/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Group/GroupMembers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcR3JvdXBNZW1iZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Group/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Home/NotCredential.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxOb3RDcmVkZW50aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Member/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVtYmVyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Member/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVtYmVyXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WEB_MVC_NET_CORE_TU_HOC/CNWEB/Areas/Admin/Views/Shared/Components/CreateProduct/Default.cshtml]

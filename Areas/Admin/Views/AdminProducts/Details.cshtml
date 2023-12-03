@@ -4,11 +4,19 @@
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Danh sách sản phẩm</a>
+            <span class="breadcrumb-item active">Chi tiết Sản Phẩm</span>
+        </nav>
+    </div>
+</div>
 <section class="content">
 
     <div class="card">
-        <div class="card-header">
-            <h3 class="card-title font-weight-semibold" style="font-size: 30px;">Chi tiết sản phẩm</h3>
+        <div class="card-header" style="background: #F7F7F7">
+            <h3 class="card-title font-weight-bold" style="font-size: 20px;">Chi tiết sản phẩm</h3>
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
@@ -23,10 +31,9 @@
                 <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
                  
                     <div class="row m-t-20 lh-2">
-                       @* <div class="col-12">*@
-                        <div class="col-sm-5">
-                              @*  <h3 class="p-l-10 m-t-10">Thông tin đơn hàng:</h3>*@
-                             @*   <address class="p-l-10 m-t-10">*@
+                    
+                        <div class="col-sm" style="margin-left: 400px; width: 300px">
+                           
                             <span class="text-muted" style="font-size: 24px;">Mã sản phẩm: @Model.Id</span><br>
                             <span class="text-muted" style="font-size: 24px;">Tên sản phẩm: @Model.Name</span><br>
                             <span class="text-muted" style="font-size: 24px;">Mô tả: @Model.Description</span><br>
@@ -38,16 +45,16 @@
                             <span class="text-muted" style="font-size: 24px;">Danh mục: @Model.GetTradeMark(Model.Id)</span>
                            @*     </address>*@
                             </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm" style="margin-left: 10px;margin-top: -30px">
                            @* <label asp-for="Image" class="text-muted" style="font-size: 24px;">Hình ảnh</label>*@
                           @*  <br />*@
-                            <img class="img-fluid" src="@Url.Content("~/uploads/" + Model.Image)" />
+                            <img class="img-fluid" src="@Url.Content("~/uploads/" + Model.Image)" style="width:700px; height: 400px" />
                         </div>
                       @*  </div>*@
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" style="margin-left: 600px; margin-top: -30px">
                         <br />
-                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary bg-primary border-0 font-weight-bold" style="width: 200px; border-color: #0062CC; margin-left: -7px"><i class="fa-solid fa-arrow-left-long" style="color: #ffffff;"></i>Quay lại</a>
+                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-secondary bg-primary border-0 font-weight-bold" style="width: 200px; border-color: #0062CC; margin-left: -7px"><i class="fa-solid fa-arrow-left-long" style="color: #ffffff;"></i> Quay lại</a>
                     </div>
             </div>
         </div>

@@ -47,7 +47,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Index")]
         [HttpGet("Index")]
-        [Authentication(MaChucNang = "02")]
+     /*   [Authentication(MaChucNang = "02")]*/
         public IActionResult Index(int? page, string CatID)
         {
             var username = HttpContext.Session.GetString("Username");

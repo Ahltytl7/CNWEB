@@ -1,0 +1,110 @@
+﻿@model CNWEB.Models.Member
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a><a asp-area="Admin" asp-controller="Group" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Danh sách quyền</a><a asp-area="Admin" asp-controller="Group" asp-action="GroupMembers" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Danh sách thành viên nhóm</a>
+            <span class="breadcrumb-item active">Thêm thành viên</span>
+        </nav>
+    </div>
+</div>
+<div class="card card-default">
+    <div class="card-header" style="background: #F7F7F7">
+        <h1 class="card-title font-weight-bold">Thêm thành viên</h1>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Id" class="control-label">Mã thành viên</label>
+                        <input asp-for="Id" class="form-control" />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Tên thành viên</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address">Địa chỉ</label>
+<textarea id="inputAddress" class="form-control" rows="4" asp-for="Address" style="height: 124px"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone" class="control-label">Số điện thoại</label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LoginName" class="control-label">Tên đăng nhập</label>
+                        <input asp-for="LoginName" class="form-control" />
+                        <span asp-validation-for="LoginName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label">Mật khẩu</label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label">Status</label>
+                        <input asp-for="Status" class="form-control" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Image" class="control-label">Hình ảnh:</label>
+                        <div class="custom-file">
+                            <input asp-for="Image" class="custom-file-input" type="file" id="Image" name="fileupload" />
+                            <label class="custom-file-label" for="Image">Chọn file</label>
+                        </div>
+                        <span asp-asp-validation-for="Image" class="text-danger"></span>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GroupId" class="control-label">Nhóm quyền</label>
+                        <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId" ></select>
+                    </div>
+                @*    <div class="form-group">
+                        <label asp-for="IdCategories" class="control-label">Danh mục</label>
+                        <select asp-for="IdCategories" class="form-control" asp-items="ViewBag.IdCategories"></select>
+                    </div>*@
+
+                </div>
+                <div class="form-group">
+
+                    <a asp-area="Admin" asp-controller="Group" asp-action="Index" class="btn btn-block btn-success" style="width:150px; margin-left: 625px; margin-top: 28px"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>  Trở lại</a>
+                </div>
+                <div class="form-group" style="margin-left: 50px">
+                    <input type="submit" asp-area="Admin" asp-controller="Group" asp-action="Index" value="Lưu thông tin" class="btn btn-primary" style="width:150px;margin-top: 28px" />
+                </div>
+            </div>
+        </form>
+    </div>
+    @section Scripts{
+        <script type="text/javascript">
+            $(".custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
+
+    }
+</div>

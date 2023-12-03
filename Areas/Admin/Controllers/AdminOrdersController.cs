@@ -13,6 +13,7 @@ namespace CNWEB.Areas.Admin.Controllers
     [Area("Admin")]
     [Route("Admin")]
     [Route("Admin/AdminOrders")]
+    [HasCredential(RoleCode = "order")]
     public class AdminOrdersController : Controller
     {
         private readonly WebContext _context;
@@ -24,20 +25,20 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Index")]
         [HttpGet("Index")]
-        [Authentication(MaChucNang = "02")]
+        [HasCredential(RoleCode = "order")]
         // GET: Admin/AdminOrders
         public IActionResult Index(int? page, string CatID)
         {
             /*var webContext = _context.Orders.Include(o => o.TransactStatus).Include(o => o.User);
             return View(await webContext.ToListAsync());*/
-            var username = HttpContext.Session.GetString("Username");
+          /*  var username = HttpContext.Session.GetString("Username");
             var fullname = HttpContext.Session.GetString("Name");
             var id = HttpContext.Session.GetString("ID");
             var image = HttpContext.Session.GetString("Image");
             var phone = HttpContext.Session.GetString("Phone");
             // Đặt thông tin người dùng vào ViewBag
             ViewBag.Username = username;
-            ViewBag.fullname = fullname;
+            ViewBag.fullname = fullname;*/
             var pageNumber = page ?? 1;
             var pageSize = 5;
 
@@ -58,7 +59,7 @@ namespace CNWEB.Areas.Admin.Controllers
 
             var totalProducts = lsProducts.Count();
             ViewBag.totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
-            var pagedList = new X.PagedList.PagedList<Order>(lsProducts.OrderByDescending(x => x.Id), pageNumber, pageSize);
+            var pagedList = new X.PagedList.PagedList<Order>(lsProducts.OrderBy(x => x.Id), pageNumber, pageSize);
             /*  var Categories = _context.Categories.ToList();*/
             /*     Categories.Insert(0, new Category(_context) { Id = "00", Names = "-------Danh Mục------" });*/
             var startRange = (pageNumber - 1) * pageSize + 1;
@@ -79,6 +80,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Details")]
         [HttpGet("Details")]
+        [HasCredential(RoleCode = "view-order")]
         // GET: Admin/AdminOrders/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -112,6 +114,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Create")]
         [HttpGet("Create")]
+       
         // GET: Admin/AdminOrders/Create
         public IActionResult Create()
         {
@@ -179,6 +182,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("UpdateTT")]
         /*    [Route("Edit")]*/
         [HttpPost]
+        [HasCredential(RoleCode = "edit-order")]
         /*   [ValidateAntiForgeryToken]*/
         public IActionResult UpdateTT(string id, string trangthai)
         {

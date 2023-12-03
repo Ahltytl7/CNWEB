@@ -19,6 +19,7 @@ namespace CNWEB.Areas.Admin.Controllers
     [Area("Admin")]
     [Route("Admin")]
     [Route("Admin/AdminProducts")]
+    [HasCredential(RoleCode = "product")]
     public class AdminProductsController : Controller
     {
         private readonly WebContext _context;
@@ -36,14 +37,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [HttpGet("Index")]
         public IActionResult Index(int? page, string CatID)
         {
-            var username = HttpContext.Session.GetString("Username");
-            var fullname = HttpContext.Session.GetString("Name");
-            var id = HttpContext.Session.GetString("ID");
-            var image = HttpContext.Session.GetString("Image");
-            var phone = HttpContext.Session.GetString("Phone");
-            // Đặt thông tin người dùng vào ViewBag
-            ViewBag.Username = username;
-            ViewBag.fullname = fullname;
+      
             var pageNumber = page ?? 1;
             var pageSize = 5;
 
@@ -57,9 +51,9 @@ namespace CNWEB.Areas.Admin.Controllers
            _context.Categories.Any(c => c.Id == x.IdCategories && c.Names.ToLower().Contains(CatID)));
   
                 }
-        
-
+    
             var totalProducts = lsProducts.Count();
+            ViewBag.totalProducts = totalProducts;
             ViewBag.totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
             var pagedList = new X.PagedList.PagedList<Product>(lsProducts.OrderBy(x => x.Id), pageNumber, pageSize);
          
@@ -109,6 +103,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Details")]
         [HttpGet("Details")]
+        [HasCredential(RoleCode = "view-product")]
         // GET: Admin/AdminProducts/Details
         public async Task<IActionResult> Details(string id)
         {
@@ -130,23 +125,14 @@ namespace CNWEB.Areas.Admin.Controllers
             return View(product);
         }
   
-            [Route("")]
+        [Route("")]
         [Route("Create")]
         [HttpGet("Create")]
+        [HasCredential(RoleCode = "add-product")]
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-            var username = HttpContext.Session.GetString("Username");
-            var fullname = HttpContext.Session.GetString("Name");
-            var id = HttpContext.Session.GetString("ID");
-            var image = HttpContext.Session.GetString("Image");
-            var phone = HttpContext.Session.GetString("Phone");
-            // Đặt thông tin người dùng vào ViewBag
-            ViewBag.Username = username;
-            ViewBag.fullname = fullname;
-            // Xoá tất cả các biến session
-        /*    HttpContext.Session.Clear();*/
-
+     
             ViewData["IdCategories"] = new SelectList(_context.Categories, "Id", "Names");
             ViewData["IdTradeMark"] = new SelectList(_context.TradeMarks, "Id", "Names");
             return View();
@@ -160,14 +146,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create( Product product, IFormFile fileupload)
         {
-            var username = HttpContext.Session.GetString("Username");
-            var fullname = HttpContext.Session.GetString("Name");
-            var id = HttpContext.Session.GetString("ID");
-            var image = HttpContext.Session.GetString("Image");
-            var phone = HttpContext.Session.GetString("Phone");
-            // Đặt thông tin người dùng vào ViewBag
-            ViewBag.Username = username;
-            ViewBag.fullname = fullname;
+    
 
             if (ModelState.IsValid)
             {
@@ -197,23 +176,13 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Edit")]
         [HttpGet("Edit")]
+        [HasCredential(RoleCode = "edit-product")]
         // GET: Admin/AdminProducts/Edit/5
         public IActionResult Edit(string id)
         {
          
             var product = _context.Products.Find(id);
-            /*ViewData["IdCategories"] = new SelectList(_context.Categories, "Id", "Names", product.IdCategories);
-            ViewData["IdTradeMark"] = new SelectList(_context.TradeMarks, "Id", "Names", product.IdTradeMark);
-           */
-            /*    if (product.IdCategories != null)
-                {
-                    ViewData["IdCategories"] = new SelectList(_context.Categories, "Id", "Names", product.IdCategories);
-                }
-
-                if (product.IdTradeMark != null)
-                {
-                    ViewData["IdTradeMark"] = new SelectList(_context.TradeMarks, "Id", "Names", product.IdTradeMark);
-                }*/
+       
             ViewBag.IdTradeMark = new SelectList(_context.TradeMarks.ToList(), "Id", "Names");
             ViewBag.IdCategories = new SelectList(_context.Categories.ToList(), "Id", "Names");
 
@@ -275,6 +244,7 @@ namespace CNWEB.Areas.Admin.Controllers
         [Route("")]
         [Route("Delete")]
         [HttpGet("Delete")]
+        [HasCredential(RoleCode = "delete-product")]
         // GET: Admin/AdminProducts/Delete/5
         public IActionResult Delete(string id)
         {

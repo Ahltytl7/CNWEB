@@ -8,7 +8,7 @@
     var cat = new Category(new WebContext());
     int totalPages = ViewBag.totalPages;
     int CurrentPage = ViewBag.CurrentPage;
-    ViewData["Title"] = "Danh sach thương hiệu" + CurrentPage;
+    ViewData["Title"] = "Danh sách thương hiệu" + CurrentPage;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -16,8 +16,8 @@
     <div class="page-header">
         <div class="header-sub-title">
             <nav class="breadcrumb breadcrumb-dash">
-                <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                <span class="breadcrumb-item active">Danh sach thương hiệu</span><p>(@ViewBag.StartRange-@ViewBag.EndRange) of @ViewBag.TotalRecords</p>
+                <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+                <span class="breadcrumb-item active">Danh sách thương hiệu</span><p>(@ViewBag.StartRange-@ViewBag.EndRange) / @ViewBag.TotalRecords</p>
             </nav>
         </div>
     </div>
@@ -33,7 +33,7 @@
 
 
                                 <div class="input-group mb-3" style="margin-left: 10px; margin-top:18px">
-                                    <input id="CatID" name="CatID" type="text" class="form-control" placeholder="Search">
+                                    <input id="CatID" name="CatID" type="text" class="form-control" placeholder="Nhập từ khoá tìm kiếm" style="width: 400px">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                     </div>
@@ -45,15 +45,12 @@
 
                     </div>
                 </div>
-                <div class="col-lg-4 text-right" style="margin-top:10px;">
-                    <a class="btn btn-info btn-sm" asp-controller="AdminTradeMarks" asp-action="Create" style="background-color: green; border-color: green">
-
-                        Thêm
+                <div class="col-lg-6 text-right " style="margin-top:10px; margin-left: -300px; ">
+                    <a type="button" class="btn btn-success float-right" asp-controller="AdminProducts" asp-action="Create" style="width:120px">
+                        <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+                        Thêm mới
                     </a>
-                   
                 </div>
-
-
               
 
             </div>
@@ -64,8 +61,9 @@
                         <table class="table table-striped projects">
                             <thead class="thead" style="background-color:#0069D9; color: white">
                                 <tr role="row">
-                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 300px;">Mã thương hiệu</th>
-                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 300px;">Tên thương hiệu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 300px;text-align: center">Mã thương hiệu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 300px;text-align: center">Tên thương hiệu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 300px;text-align: center">Hình ảnh</th>
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=": activate to sort column ascending" style="width: 150px;"></th>
 
                                 </tr>
@@ -77,13 +75,15 @@
                                     foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td style="text-align: left; margin-left: 10px">
+                                            <td style="text-align: center">
                                                 @item.Id
                                             </td>
-                                            <td style="text-align: left; margin-left: 10px">
+                                            <td style="text-align: center">
                                                 @item.Names
                                             </td>
-
+                                                 <td style="text-align: center">
+                                                <img src="@Url.Content("~/uploads/" + @item.Logo)" width="50px" height="50px" />
+                                            </td>
                                            @* <td style="text-align: center; padding-right: 100px">
                                                 @Html.DisplayFor(modelItem => item.Discount)
                                             </td>

@@ -1,18 +1,22 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
+@using System.Text
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MTA-ELECTRONIC | Dashboard</title>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
    @* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha384-1oxN1iKk4m0E/02Qz5c6w3O03pBCSMzm77vzq+VSIz1D7mz4e+l3VpbvOwEIfFfU" crossorigin="anonymous">*@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/admin/plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/admin/dist/css/adminlte.css">
+    <link rel="stylesheet" href="~/admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="~/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
@@ -27,8 +31,26 @@
     <link rel="stylesheet" href="~/admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="~/admin/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/admin/plugins/bootstrap-slider/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/admin/plugins/bootstrap-slider/css/bootstrap-slider.css" rel="stylesheet" />
+
+
+
+@*    <link href="~/lib/ionic/css/ionic.css" rel="stylesheet" />
+    <link href="~/lib/ionic/css/ionic.min.css" rel="stylesheet" />*@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+       @{
+        CNWEB.Models.Member member = new CNWEB.Models.Member();
+        if (Context.Request.HttpContext.Session.TryGetValue("Member", out var memberData))
+        {
+            member = JsonConvert.DeserializeObject<CNWEB.Models.Member>(Encoding.UTF8.GetString(memberData));
+        }
+    }
     <div class="wrapper">
 
         <!-- Preloader -->
@@ -165,9 +187,9 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li class="nav-item" style="margin-top: 8px;">
-                    <a asp-controller="Access" asp-action="Logout">
-                        <i class="fa fa-user">Đăng xuất</i>
+                <li class="nav-item" style="margin-top: 0px;">
+                    <a href="@Url.Action("Logout","Member",new {area="Admin"})" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
                     </a>
                 </li>
             </ul>
@@ -187,10 +209,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="~/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="~/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="@member.Name">
             </div>
             <div class="info">
-                        <a href="#" class="d-block">@ViewBag.fullname</a>
+                        <a href="#" class="d-block">@member.Name</a>
             </div>
         </div>
        @*   @Html.Partial("_UserPanelPartial")*@
@@ -203,8 +225,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="@Url.Action("Index", "HomeAdmin", new { area = "Admin" })" class="nav-link active">
+                <li class="nav-item">
+                            <a href="@Url.Action("Index", "Home", new { area = "Admin" })" class="nav-link active">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Trang Chủ
@@ -221,9 +243,9 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="margin-left: 9px">
                             <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fas fa-shopping-bag" style="color: white"></i>
+                                <i class="fa-solid fa-list" style="color: #fafafa;"></i>
                         <p>
                             Sản phẩm
                         </p>
@@ -243,35 +265,35 @@
                     <a asp-area="Admin" asp-controller="AdminUser" asp-action="Index" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Quản Lý Tài khoản
+                            Quản trị hệ thống
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview" style="display: none;">
                         <li class="nav-item">
-                                    <a asp-area="Admin" asp-controller="AdminUser" asp-action="Index" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách người dùng</p>
+                                    <a href="@Url.Action("Index", "Group", new { area = "Admin" })" class="nav-link">
+                                <i class="fa-solid fa-users" style="color: #ffffff;"></i>
+                                <p>Nhóm quyền</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                   @*     <li class="nav-item">
                             <a href="../charts/flot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Nhóm </p>
                             </a>
-                        </li>
+                        </li>*@
                         <li class="nav-item">
-                            <a href="../charts/inline.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Quyền</p>
+                                    <a href="@Url.Action("Index", "Member", new { area = "Admin" })" class="nav-link">
+                                        <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+                                <p>Thành viên</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                    @*    <li class="nav-item">
                             <a href="../charts/uplot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>uPlot</p>
                             </a>
-                        </li>
+                        </li>*@
                     </ul>
                 </li>
               @*  <li class="nav-item">
@@ -407,7 +429,10 @@
     <!-- overlayScrollbars -->
     <script src="~/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="~/admin/dist/js/adminlte.js"></script>
+    <script src="/dist/js/adminlte.js"></script>
+    <script src="~/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/admin/plugins/jquery/jquery.min.js"></script>
+    <script src="~/admin/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/admin/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

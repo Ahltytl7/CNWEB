@@ -41,59 +41,80 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-<div class="col-md-6">
-    <div class="card card-primary" style="width: 1500px">
-          <div class="card-header">
-            <h3 class="card-title">Sửa sản phẩm</h3>
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                </button>
-            </div>
-        </div>
-        <form class="card-body" method="post" asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Edit"  enctype="multipart/form-data">
-            @* <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
-            <div style="display: inline-block; width:600px">
-            <div class="form-group">
-                <label asp-for="Id" class="control-label">Mã thương hiệu</label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Names" class="control-label">Tên thương hiệu</label>
-                <input asp-for="Names" class="form-control" />
-                <span asp-validation-for="Names" class="text-danger"></span>
-            </div>
-           
-          
-            </div>
-            <div class="form-group" style="display: inline-block; margin-left: 100px" >
-                <label for="Image">Hình ảnh:</label>
-                <input type="file" id="Anh" name="fileupload" value="@Model.Logo" width="100px" onchange="displaySelectedFile(this)" />
-                <script>
-                    // JavaScript function to display the selected file name
-                    function displaySelectedFile(input) {
-                        var fileName = input.files[0].name;
-                        var filePath = URL.createObjectURL(input.files[0]);
-                        document.getElementById('file-info').innerText = fileName;
-                        document.getElementById('productImage').src = filePath;
-                    }
-                </script>
-                @if (!string.IsNullOrEmpty(Model.Logo))
-                {
-                    <img id="productImage" src="@Url.Content("~/uploads/" + Model.Logo)" width="500px" height="500px" />
-                }
-                <p id="file-info"></p>
-            </div>
-        <div class="col-12" asp-action="Index" asp-controller="AdminTradeMarks">
-            <input type="submit" value="Cập nhật" class="btn btn-primary" />
-            <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="btn btn-secondary">Trở lại</a>
-        </div>
-        </form>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a><a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Danh sách thương hiệu</a>
+            <span class="breadcrumb-item active">Sửa thương hiệu</span>
+        </nav>
     </div>
 </div>
+<div class="card card-default">
+    <div class="card-header" style="background: #F7F7F7">
+        <h1 class="card-title font-weight-bold">Sửa thương hiệu</h1>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form method="post" asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Edit" enctype="multipart/form-data">
+           
+                <div class="col-md-6" style="margin-left: 400px">
+                    <div class="form-group">
+                        <label asp-for="Id" class="control-label">Mã thương hiệu</label>
+                        <input asp-for="Id" class="form-control" />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Names" class="control-label">Tên thương hiệu</label>
+                        <input asp-for="Names" class="form-control" />
+                        <span asp-validation-for="Names" class="text-danger"></span>
+                    </div>
+                <div class="form-group">
+                    <label for="Logo" class="control-label">Hình ảnh:</label>
+                    <div class="custom-file">
+                        <input asp-for="Logo" class="custom-file-input" type="file" id="Logo" name="fileupload" />
+                        <label class="custom-file-label" for="Logo">@Model.Logo</label>
+                    </div>
+                    <span asp-asp-validation-for="Logo" class="text-danger"></span>
 
 
+                </div>
+                    <div class="row" style="margin-left: 200px">
+                    <div class="form-group">
+
+                        <a asp-area="Admin" asp-controller="AdminTradeMarks" asp-action="Index" class="btn btn-block btn-success" style="width:150px"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> Trở lại</a>
+                    </div>
+
+                    <div class="form-group" style="margin-left: 50px">
+                        @*   <i class="fa-regular fa-floppy-disk"></i>*@
+                        <input type="submit" value="Cập nhật" class="btn btn-primary" style="width: 150px" />
+                    </div>
+                </div>
+                </div>
+
+
+    
+        </form>
+    </div>
+    </div>
+
+    @section Scripts{
+        <script type="text/javascript">
+            $(".custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
+
+    }
 @*
 @section Scripts{
     <script>

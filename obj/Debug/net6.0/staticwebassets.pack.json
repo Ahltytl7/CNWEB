@@ -8413,6 +8413,266 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\all.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\brands.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\brands.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\brands.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\brands.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\fontawesome.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\fontawesome.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\fontawesome.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\regular.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\regular.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\regular.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\regular.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\solid.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\solid.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\solid.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\solid.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\svg-with-js.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\svg-with-js.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\svg-with-js.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\svg-with-js.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\v4-font-face.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-font-face.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\v4-font-face.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-font-face.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\v4-shims.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-shims.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\v4-shims.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-shims.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\v5-font-face.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v5-font-face.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\css\\v5-font-face.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v5-font-face.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\all.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\all.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\all.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\all.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\brands.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\brands.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\brands.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\brands.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\conflict-detection.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\conflict-detection.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\conflict-detection.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\conflict-detection.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\fontawesome.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\fontawesome.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\fontawesome.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\fontawesome.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\regular.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\regular.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\regular.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\regular.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\solid.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\solid.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\solid.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\solid.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\v4-shims.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\v4-shims.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\js\\v4-shims.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\v4-shims.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\sprites\\brands.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\brands.svg"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\sprites\\regular.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\regular.svg"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\sprites\\solid.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\solid.svg"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-v4compatibility.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-v4compatibility.ttf"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\font-awesome\\webfonts\\fa-v4compatibility.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\css\\ionic.css",
+      "PackagePath": "staticwebassets\\lib\\ionic\\css\\ionic.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\css\\ionic.min.css",
+      "PackagePath": "staticwebassets\\lib\\ionic\\css\\ionic.min.css"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\fonts\\ionicons.eot",
+      "PackagePath": "staticwebassets\\lib\\ionic\\fonts\\ionicons.eot"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\fonts\\ionicons.svg",
+      "PackagePath": "staticwebassets\\lib\\ionic\\fonts\\ionicons.svg"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\fonts\\ionicons.ttf",
+      "PackagePath": "staticwebassets\\lib\\ionic\\fonts\\ionicons.ttf"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\fonts\\ionicons.woff",
+      "PackagePath": "staticwebassets\\lib\\ionic\\fonts\\ionicons.woff"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular-ui\\angular-ui-router.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular-ui\\angular-ui-router.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular-ui\\angular-ui-router.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular-animate.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular-animate.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular-animate.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular-animate.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular-resource.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular-resource.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular-resource.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular-resource.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular-sanitize.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular-sanitize.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular-sanitize.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular-sanitize.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\angular\\angular.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\angular\\angular.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\ionic-angular.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\ionic-angular.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\ionic-angular.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\ionic-angular.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\ionic.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\ionic.bundle.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\ionic.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\ionic.bundle.min.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\ionic.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\ionic.js"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\ionic\\js\\ionic.min.js",
+      "PackagePath": "staticwebassets\\lib\\ionic\\js\\ionic.min.js"
+    },
+    {
       "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
@@ -8459,6 +8719,10 @@
     {
       "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\air_m2-removebg-preview.png",
+      "PackagePath": "staticwebassets\\uploads\\air_m2-removebg-preview.png"
     },
     {
       "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\may-lanh-tu-dung-funiki-fc50-5-11419.jpg",
@@ -8511,6 +8775,10 @@
     {
       "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\may-xay-sinh-to-multi-4ae3f.jpg",
       "PackagePath": "staticwebassets\\uploads\\may-xay-sinh-to-multi-4ae3f.jpg"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\maygiatelectroluxinverter71-95d3d83b-afc2-4074-b05d-d895eeda073e8b96-removebg-preview.png",
+      "PackagePath": "staticwebassets\\uploads\\maygiatelectroluxinverter71-95d3d83b-afc2-4074-b05d-d895eeda073e8b96-removebg-preview.png"
     },
     {
       "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\maygiatelectroluxinverter71-95d3d83b-afc2-4074-b05d-d895eeda073e8b96.jpg",
@@ -8851,6 +9119,10 @@
     {
       "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\maylocnuocmitshubishicleansuie-dac7d6be-80fa-4795-b6f1-1d104d49180618e6.jpg",
       "PackagePath": "staticwebassets\\uploads\\maylocnuocmitshubishicleansuie-dac7d6be-80fa-4795-b6f1-1d104d49180618e6.jpg"
+    },
+    {
+      "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\samsung-galaxy-s23-ultra-removebg-preview.png",
+      "PackagePath": "staticwebassets\\uploads\\samsung-galaxy-s23-ultra-removebg-preview.png"
     },
     {
       "Id": "D:\\WEB_MVC_NET_CORE_TU_HOC\\CNWEB\\wwwroot\\uploads\\smarttivicongsamsung4k491-d8242c8e-e2fe-4beb-953a-0d001477cc4eb39d.jpg",

@@ -4,9 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CNWEB</title>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CNWEB.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/ionic/css/ionic.css" rel="stylesheet" />
+    <link rel="stylesheet"  href="~/lib/ionic/css/ionic.min.css" rel="stylesheet" />
+
+
 </head>
 <body>
     <header>
@@ -23,7 +30,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Access" asp-action="Login">Admin</a>
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Member" asp-action="Login">Admin</a>
                         </li>
                     </ul>
                 </div>

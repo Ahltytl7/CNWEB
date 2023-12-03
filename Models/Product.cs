@@ -13,6 +13,9 @@ public partial class Product
     {
         _context = context;
     }
+    public Product()
+    {
+    }
     public string Id { get; set; } = null!;
 
     public string Name { get; set; } = null!;

@@ -1,0 +1,56 @@
+﻿@model CNWEB.Models.Group
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a><a asp-area="Admin" asp-controller="Group" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Danh sách nhóm quyền</a>
+            <span class="breadcrumb-item active">Sửa Nhóm Quyền</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card card-default">
+    <div class="card-header" style="background: #F7F7F7">
+        <h1 class="card-title font-weight-bold">Sửa nhóm quyền</h1>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form method="post" asp-area="Admin" asp-controller="Group" asp-action="Edit" enctype="multipart/form-data">
+
+            <div class="col-md-6" style="margin-left: 420px">
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label">Mã nhóm</label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Tên Nhóm</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="row" style="margin-left: 220px">
+                    <div class="form-group">
+
+                        <a asp-area="Admin" asp-controller="Group" asp-action="Index" class="btn btn-block btn-success" style="width:150px"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>  Trở lại</a>
+                    </div>
+                    <div class="form-group" style="margin-left: 50px">
+                        <input type="submit" value="Lưu thông tin" class="btn btn-primary" style="width:150px" />
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>

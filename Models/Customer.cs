@@ -47,7 +47,6 @@ public partial class Customer
         var customer = _context.Customers.FirstOrDefault(c => c.Id == userId);
         return customer?.Name ?? "DefaultUserName";
     }
-
     public string GetUserEmail(string userId)
     {
         var customer = _context.Customers.FirstOrDefault(c => c.Id == userId);
